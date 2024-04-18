@@ -7,12 +7,12 @@
 #include <map>
 #include <fstream>
 #include <algorithm>
-#include <iterator>
 using namespace std;
 
 #include "ListItem.h"
 #include "ListItem.cpp"
 
+// function to display menu
 void displayMenu() {
   cout << "What would you like to do? \n" << endl;
 
@@ -21,7 +21,7 @@ void displayMenu() {
   cout << "3. Print frequency with '*' and a histogram \n" << endl;
   cout << "4. Exit \n" << endl;
 }
-
+//function to print freq of specific item
 void printItemFreq(map<string, int> groceryList) {
   string userInput;
   cout << "---------------------------------------------" << endl;
@@ -37,7 +37,7 @@ void printItemFreq(map<string, int> groceryList) {
   }
   cout << "---------------------------------------------" << endl;
 }
-
+// prints all items + freq
 void printAllItems(map<string, int> groceryList,  map<string,int>::const_iterator it) {
   cout << "---------------------------------------------" << endl;
   cout << "           Frequency of All Items            " << endl;
@@ -47,7 +47,7 @@ void printAllItems(map<string, int> groceryList,  map<string,int>::const_iterato
   }
   cout << "---------------------------------------------" << endl;
 }
-
+// print items with * as freq
 void printWithStars(map<string, int> groceryList,  map<string,int>::const_iterator it) {
   cout << "---------------------------------------------" << endl;
   cout << "            Frequency w/ Stars               " << endl;
@@ -60,11 +60,11 @@ void printWithStars(map<string, int> groceryList,  map<string,int>::const_iterat
     cout << "\n";
   }
 }
-
+// prints a histogram of freq
 void printHistogram(vector<ListItem> vectorList) {
   int max = 0;
   int i;
-
+  // get max of item freq for column #
   for (i = 0; i < vectorList.size(); i++) {
     if (vectorList.at(i).GetQuantity() > max) {
       max = vectorList.at(i).GetQuantity();
@@ -100,7 +100,6 @@ int main() {
   int userChoice = 0;
   ListItem currItem;
   string currItemName;
-  // int itemFreq;
 
   // open input and output file
   listOfItems.open("CS210_Project_Three_Input_File.txt");
